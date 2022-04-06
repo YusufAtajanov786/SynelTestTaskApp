@@ -28,8 +28,4 @@
     <ProjectReference Include="..\SynelTestTaskApp.Models\SynelTestTaskApp.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
 </Project>
