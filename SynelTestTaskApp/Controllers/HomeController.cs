@@ -45,6 +45,18 @@ namespace SynelTestTaskApp.Controllers
             return Json(new { data = _employeRepository.GetAll() });
         }
 
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        { 
+            var result = _employeRepository.Remove(id);
+            if(result == null)
+            {
+                return Json(new { success = false, message = "Failed" });
+            }
+            _employeRepository.Save();
+            return Json(new { success = true, message = "Success" });
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

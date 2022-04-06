@@ -32,13 +32,14 @@ namespace SynelTestTaskApp.Data_Access.Data.Repository
             return _dbSet;
         }
 
-        public void Remove(int id)
+        public T Remove(int id)
         {
             var data = _dbSet.Find(id);
             if (data != null)
             {
-                _dbSet.Remove(data);
+                _dbSet.Remove(data);                
             }
+            return data;
         }
 
         public void Save()
