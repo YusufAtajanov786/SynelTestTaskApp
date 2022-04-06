@@ -14,7 +14,7 @@ namespace SynelTestTaskApp.Data_Access.Data.Repository.IRepository
 
         IEnumerable<T> GetAll();
 
-        void Remove(int id);
+        T Remove(int id);
        
 
         void Save();

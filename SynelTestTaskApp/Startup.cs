@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SynelTestTaskApp.Data_Access;
+using SynelTestTaskApp.Data_Access.Data.Repository;
+using SynelTestTaskApp.Data_Access.Data.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,7 @@ namespace SynelTestTaskApp
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
+            services.AddScoped<IEmployeRepository, EmployeRepository>();
         }
 
         
