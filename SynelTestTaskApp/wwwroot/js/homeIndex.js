@@ -61,7 +61,7 @@ function loadList() {
 
 function Delete(url) {
     swal({
-        title: "Are you sure you want to delete this?" + url,
+        title: "Are you sure you want to delete this?",
         text: "You will not able to restor the data! ",
         icon: "warning",
         buttons: true,
@@ -69,7 +69,7 @@ function Delete(url) {
     }).then((willDelete) => {
         if (willDelete) {
             $.ajax({
-                type: "Post",
+                type: "Delete",
                 url: url,
                 success: function (data) {
                     if (data.success) {

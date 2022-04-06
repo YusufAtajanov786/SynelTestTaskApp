@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SynelTestTaskApp.Data_Access.Data.Repository
 {
-    public class EmployeRepository:Repository<Employe>, IEmployeRepository
+    public class EmployeRepository:Repository<Employee>, IEmployeRepository
     {
         public EmployeRepository( AppDbContext dbContext)
             : base(dbContext)
@@ -32,14 +32,14 @@ namespace SynelTestTaskApp.Data_Access.Data.Repository
 
             string[] resultLines = records.ToString().Trim().Split(new char[] { '\n' });
 
-            List<Employe> employes = resultLines.Skip(1).Select(x => Parse(x)).ToList();
+            List<Employee> employes = resultLines.Skip(1).Select(x => Parse(x)).ToList();
 
             InsertEmployeeRecordsTotheDb(employes);
 
             return employes.Count;
         }
 
-        private void InsertEmployeeRecordsTotheDb(List<Employe> employes)
+        private void InsertEmployeeRecordsTotheDb(List<Employee> employes)
         {
             foreach( var employe in employes)
             {
@@ -47,10 +47,10 @@ namespace SynelTestTaskApp.Data_Access.Data.Repository
             }
         }
 
-        public Employe Parse(string line)
+        public Employee Parse(string line)
         {
             string[] values = line.Split(',');
-            Employe employe = new Employe();
+            Employee employe = new Employee();
             employe.Payroll_Number = values[0];
             employe.Forenames = values[1];
             employe.Surname = values[2];
@@ -63,6 +63,13 @@ namespace SynelTestTaskApp.Data_Access.Data.Repository
             employe.EMail_Home = values[9];
             employe.Start_Date = DateTime.ParseExact(values[10].TrimStart().TrimEnd(), "d/M/yyyy", CultureInfo.InvariantCulture);
             return employe;
+        }
+
+        public Employee Update(Employee employee)
+        {
+            var newEmployee = _dbSet.Attach(employee);
+            newEmployee.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            return employee;
         }
     }
 }

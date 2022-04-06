@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SynelTestTaskApp.Models
 {
-    public class Employe
+    public class Employee
     {
         public int Id { get; set; }
 

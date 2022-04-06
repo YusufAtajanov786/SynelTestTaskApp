@@ -21,10 +21,61 @@ namespace SynelTestTaskApp.Controllers
             _logger = logger;
             this._employeRepository = employeRepository;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult GetAllEmployeRecords()
+        {
+            return Json(new { data = _employeRepository.GetAll() });
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Employee employe = _employeRepository.Get(id);
+            HomeEditViewModel homeEditViewModel = new HomeEditViewModel()
+            {
+                Id = id,
+                Payroll_Number = employe.Payroll_Number,
+                Forenames = employe.Forenames,
+                Surname = employe.Surname,
+                Date_of_Birth = employe.Date_of_Birth,
+                Telephone = employe.Telephone,
+                Mobile = employe.Mobile,
+                Address = employe.Address,
+                Address_2 = employe.Address_2,
+                Postcode = employe.Postcode,
+                EMail_Home = employe.EMail_Home,
+                Start_Date = employe.Start_Date
+            };
+            return View(homeEditViewModel);
+        }
+        [HttpPost]
+        public IActionResult Edit(HomeEditViewModel homeEditViewModel)
+        {
+            if(!ModelState.IsValid)
+                return View(homeEditViewModel);
+            Employee employee = _employeRepository.Get(homeEditViewModel.Id);
+
+            employee.Payroll_Number = homeEditViewModel.Payroll_Number;
+            employee.Forenames = homeEditViewModel.Forenames;
+            employee.Surname = homeEditViewModel.Surname;
+            employee.Date_of_Birth = homeEditViewModel.Date_of_Birth;
+            employee.Telephone = homeEditViewModel.Telephone;
+            employee.Mobile = homeEditViewModel.Mobile;
+            employee.Address = homeEditViewModel.Address;
+            employee.Address_2 = homeEditViewModel.Address_2;
+            employee.Postcode = homeEditViewModel.Postcode;
+            employee.EMail_Home = homeEditViewModel.EMail_Home;
+            employee.Start_Date = homeEditViewModel.Start_Date;
+
+            _employeRepository.Update(employee);
+            _employeRepository.Save();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -39,11 +90,8 @@ namespace SynelTestTaskApp.Controllers
             return View(homeIndex);
         }
 
-        [HttpGet]
-        public IActionResult GetAllEmployeRecords()
-        {
-            return Json(new { data = _employeRepository.GetAll() });
-        }
+        
+      
 
         [HttpDelete]
         public IActionResult Delete(int id)

@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace SynelTestTaskApp.Data_Access.Data.Repository.IRepository
 {
-    public interface IEmployeRepository : IRepository<Employe>
+    public interface IEmployeRepository : IRepository<Employee>
     {
         int ReadFromCSVFileAndInsert(IFormFile file);
+
+        Employee Update(Employee employee);
     }
 }

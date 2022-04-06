@@ -16,6 +16,6 @@ namespace SynelTestTaskApp.Data_Access
 
         }
 
-        public DbSet<Employe> Employes { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
