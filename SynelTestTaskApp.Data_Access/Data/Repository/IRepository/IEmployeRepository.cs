@@ -1,4 +1,5 @@
-﻿using SynelTestTaskApp.Models;
+﻿using Microsoft.AspNetCore.Http;
+using SynelTestTaskApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace SynelTestTaskApp.Data_Access.Data.Repository.IRepository
 {
     public interface IEmployeRepository : IRepository<Employe>
     {
+        int ReadFromCSVFileAndInsert(IFormFile file);
     }
 }
