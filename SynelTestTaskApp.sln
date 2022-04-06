@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynelTestTaskApp", "SynelTestTaskApp\SynelTestTaskApp.csproj", "{55AE7D27-3D52-4924-85A6-39E6BAA7F209}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynelTestTaskApp", "SynelTestTaskApp\SynelTestTaskApp.csproj", "{55AE7D27-3D52-4924-85A6-39E6BAA7F209}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynelTestTaskApp.Test", "SynelTestTaskApp.Test\SynelTestTaskApp.Test.csproj", "{A063C66C-3957-4BA2-85FE-B9B4D94C2836}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynelTestTaskApp.Test", "SynelTestTaskApp.Test\SynelTestTaskApp.Test.csproj", "{A063C66C-3957-4BA2-85FE-B9B4D94C2836}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynelTestTaskApp.Models", "SynelTestTaskApp.Models\SynelTestTaskApp.Models.csproj", "{6AD48D7A-934B-4CBA-B65A-5A7DB4B20DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynelTestTaskApp.Data_Access", "SynelTestTaskApp.Data_Access\SynelTestTaskApp.Data_Access.csproj", "{2327327D-4B4D-4928-8D0E-091D3C3F8D28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{A063C66C-3957-4BA2-85FE-B9B4D94C2836}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A063C66C-3957-4BA2-85FE-B9B4D94C2836}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A063C66C-3957-4BA2-85FE-B9B4D94C2836}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD48D7A-934B-4CBA-B65A-5A7DB4B20DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD48D7A-934B-4CBA-B65A-5A7DB4B20DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD48D7A-934B-4CBA-B65A-5A7DB4B20DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD48D7A-934B-4CBA-B65A-5A7DB4B20DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2327327D-4B4D-4928-8D0E-091D3C3F8D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2327327D-4B4D-4928-8D0E-091D3C3F8D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2327327D-4B4D-4928-8D0E-091D3C3F8D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2327327D-4B4D-4928-8D0E-091D3C3F8D28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
