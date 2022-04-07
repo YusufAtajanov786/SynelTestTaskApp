@@ -37,7 +37,7 @@ namespace SynelTestTaskApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public ViewResult Edit(int id)
         {
             Employee employe = _employeRepository.Get(id);
             HomeEditViewModel homeEditViewModel = new HomeEditViewModel()
@@ -82,7 +82,7 @@ namespace SynelTestTaskApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(HomeIndexViewModel homeIndexViewModel)
+        public ViewResult Index(HomeIndexViewModel homeIndexViewModel)
         {
             HomeIndexViewModel homeIndex = new HomeIndexViewModel();
             if( homeIndexViewModel.File != null)
