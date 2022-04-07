@@ -51,4 +51,9 @@
 @section Scripts{
 
      <script src=~/js/homeIndex.js></script>
+     @if( Model.CountOfInsertedRecords != null && Model.CountOfInsertedRecords > 0  ){
+             <script>
+                     toastr.success( @Model.CountOfInsertedRecords + " records succesfully inserted")
+            </script>
+        }
 }

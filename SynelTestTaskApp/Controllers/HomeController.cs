@@ -13,6 +13,8 @@ namespace SynelTestTaskApp.Controllers
 {
     public class HomeController : Controller
     {
+
+
         private readonly ILogger<HomeController> _logger;
         private readonly IEmployeRepository _employeRepository;
 
@@ -22,9 +24,10 @@ namespace SynelTestTaskApp.Controllers
             this._employeRepository = employeRepository;
         }
         [HttpGet]
-        public IActionResult Index()
+        public ViewResult Index()
         {
-            return View();
+            HomeIndexViewModel homeIndex = new HomeIndexViewModel();
+            return View(homeIndex);
         }
 
         [HttpGet]
