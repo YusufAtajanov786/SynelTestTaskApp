@@ -2,7 +2,7 @@
 var dataTable;
 $(document).ready(function () {
     loadList();
-
+   
 });
 
 $(document).ready(function () {
@@ -11,6 +11,11 @@ $(document).ready(function () {
         $(this).next('.custom-file-label').html(fileName);
     });
 });
+
+
+      
+   
+
 
 function loadList() {
     dataTable = $("#DT_load").DataTable({
@@ -22,7 +27,7 @@ function loadList() {
         "columns": [
             { "data": "payroll_Number" },
             { "data": "forenames" },
-            { "data": "surname" },
+            { "data": "surname" },           
             { "data": "date_of_Birth" },
             { "data": "telephone" },
             { "data": "mobile" },
@@ -31,6 +36,7 @@ function loadList() {
             { "data": "postcode" },
             { "data": "eMail_Home" },
             { "data": "start_Date" },
+           
             {
                 "data": "id",
                 "render": function (data) {
@@ -52,9 +58,10 @@ function loadList() {
 
             }
         ],
+        "order": [[2, "asc"]],
         "language": {
             "emptyTable": "no data found."
-        },
+        },        
         "width": "100%"
     });
 }

@@ -73,10 +73,11 @@ namespace SynelTestTaskApp.Test
                 .Returns(employee);
 
             // Act
-            var actual = homeController.GetAllEmployeRecords() as JsonResult;
+            var actual = homeController.GetAllEmployeRecords() ;
 
             //Assert
-           
+           Assert.IsType<JsonResult>(actual);
+
             
            
         }
@@ -142,7 +143,7 @@ namespace SynelTestTaskApp.Test
 
 
         [Fact]
-        public void Index_Post_Returns_ParsedJson()
+        public void Index_Post_Returns_ViewResult()
         {
             //Arrange
             HomeController homeController = new HomeController(ILoggerStub.Object, IEmployeRepository.Object);

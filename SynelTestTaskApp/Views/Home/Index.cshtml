@@ -16,6 +16,7 @@
                     <div class="custom-file">
                          <input asp-for="File" type="file" class="form-control custom-file-input" />
                          <label class="custom-file-label">Choose File</label>
+                          <span asp-validation-for="File" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-4" >
@@ -33,14 +34,14 @@
                 <th>Payroll Number</th>
                 <th>Forenames</th>
                 <th>Surname</th>
-                <th>Date_of_Birth</th>
+                <th>Date of Birth</th>
                 <th>Telephone</th>
                 <th>Mobile</th>
                 <th>Address</th>
-                <th>Address_2</th>
+                <th>Address 2</th>
                 <th>Postcode</th>
-                <th>EMail_Home</th>
-                <th>Start_Date</th>
+                <th>EMail Home</th>
+                <th>Start Date</th>
                 <th></th>
             </tr>
         </thead>
@@ -50,7 +51,7 @@
 
 @section Scripts{
 
-     <script src=~/js/homeIndex.js></script>
+     <script src="~/js/homeIndex.js" asp-append-version="true" ></script>
      @if( Model.CountOfInsertedRecords != null && Model.CountOfInsertedRecords > 0  ){
              <script>
                      toastr.success( @Model.CountOfInsertedRecords + " records succesfully inserted")

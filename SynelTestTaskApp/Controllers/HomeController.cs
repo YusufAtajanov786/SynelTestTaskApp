@@ -23,12 +23,31 @@ namespace SynelTestTaskApp.Controllers
             _logger = logger;
             this._employeRepository = employeRepository;
         }
+
         [HttpGet]
         public ViewResult Index()
         {
             HomeIndexViewModel homeIndex = new HomeIndexViewModel();
             return View(homeIndex);
         }
+
+        [HttpPost]
+        public ViewResult Index(HomeIndexViewModel homeIndexViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(homeIndexViewModel);
+            }
+
+            HomeIndexViewModel homeIndex = new HomeIndexViewModel();
+            if (homeIndexViewModel.File != null)
+            {
+                homeIndex.CountOfInsertedRecords = _employeRepository.ReadFromCSVFileAndInsert(homeIndexViewModel.File);
+                _employeRepository.Save();
+            }
+            return View(homeIndex);
+        }
+
 
         [HttpGet]
         public IActionResult GetAllEmployeRecords()
@@ -81,18 +100,7 @@ namespace SynelTestTaskApp.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public ViewResult Index(HomeIndexViewModel homeIndexViewModel)
-        {
-            HomeIndexViewModel homeIndex = new HomeIndexViewModel();
-            if( homeIndexViewModel.File != null)
-            {
-                homeIndex.CountOfInsertedRecords = _employeRepository.ReadFromCSVFileAndInsert(homeIndexViewModel.File);
-                _employeRepository.Save();
-            } 
-            return View(homeIndex);
-        }
-
+      
         
       
 
@@ -107,6 +115,7 @@ namespace SynelTestTaskApp.Controllers
             _employeRepository.Save();
             return Json(new { success = true, message = "Success" });
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
